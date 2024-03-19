@@ -129,7 +129,7 @@
         </geometry>
       </visual>
 
-      <sensor name="hls_lfcd_lds" type="ray">
+      <!-- <sensor name="hls_lfcd_lds" type="ray">
         <always_on>true</always_on>
         <visualize>true</visualize>
         <pose>-0.032 0 0.171 0 0 0</pose>
@@ -162,7 +162,7 @@
           <output_type>sensor_msgs/LaserScan</output_type>
           <frame_name>tb3_1/base_scan</frame_name>
         </plugin>
-      </sensor>
+      </sensor> -->
     </link>
 
     <link name="wheel_left_link">

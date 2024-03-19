@@ -18,7 +18,8 @@
 
     <include>
       <pose>0 -1.7 0.01 0.0 0.0 0.0</pose>
-      <uri>model://turtlebot3_burger_velodyne</uri>
+      <!-- <uri>model://turtlebot3_burger_velodyne</uri> -->
+      <uri>model://turtlebot3_burger_velodyne_0</uri>
     </include>
     
   </world>

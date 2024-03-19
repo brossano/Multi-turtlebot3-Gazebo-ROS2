@@ -13,17 +13,17 @@
     </include>
 
     <include>
-      <uri>model://turtlebot3_room</uri>
+      <uri>model://turtlebot3_dqn_world</uri>
     </include>
 
     <include>
-      <pose>0 -1.7 0.01 0.0 0.0 0.0</pose>
-      <uri>model://turtlebot3_burger_velodyne_0</uri>
+      <pose>-2 -2 0.01 0.0 0.0 0.0</pose>
+      <uri>model://turtlebot3_burger_0</uri>
     </include>
     
     <include>
-      <pose>0 -2.2 0.01 0.0 0.0 0.0</pose>
-      <uri>model://turtlebot3_burger_velodyne_1</uri>
+      <pose>-2 2 0.01 0.0 0.0 0.0</pose>
+      <uri>model://turtlebot3_burger_1</uri>
     </include>
 
   </world>

@@ -28,9 +28,18 @@ from launch.actions import ExecuteProcess
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.substitutions import Command
+import subprocess
 
 
 TURTLEBOT3_MODEL = "burger"
+
+# killserver = subprocess.run(['killall', '-9', 'gzserver'],
+#     # Probably don't forget these, too
+#     check=True, text=True)
+
+# killclient = subprocess.run(['killall', '-9', 'gzclient'],
+#     # Probably don't forget these, too
+#     check=True, text=True)
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -38,7 +47,7 @@ def generate_launch_description():
     world = os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'worlds', world_file_name)
     robot_desc_path = os.path.join(get_package_share_directory("turtlebot3_description"), "urdf", "turtlebot3_velodyne_burger.urdf")
 
-    entity_name_0="tb3_0"
+    entity_name_0=""
     entity_name_1="tb3_1"
 
     return LaunchDescription([
@@ -62,6 +71,23 @@ def generate_launch_description():
             namespace=entity_name_1,
             parameters=[{'frame_prefix': entity_name_1+'/', 'use_sim_time': use_sim_time, 'robot_description': Command(['xacro ', robot_desc_path, ' robot_name:=', entity_name_1])}],
             output="screen"
-        )
+        ),
+
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            arguments = ['0', '0', '0', '0', '0', '0', 'map', 'tb3_1/odom']
+        ),
+
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            arguments=['-d', '/home/brossano/sim_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/rviz/slam.rviz'],
+            output='screen'
+        ),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'launch', 'slam_launch.py')))
 
     ])

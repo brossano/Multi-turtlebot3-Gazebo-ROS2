@@ -38,7 +38,9 @@ def generate_launch_description():
     world = os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'worlds', world_file_name)
     robot_desc_path = os.path.join(get_package_share_directory("turtlebot3_description"), "urdf", "turtlebot3_velodyne_burger.urdf")
 
-    entity_name_0=""
+    entity_name_0="/tb3_0"
+
+    remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static')]
 
     return LaunchDescription([
         ExecuteProcess(
@@ -51,7 +53,8 @@ def generate_launch_description():
             name='robot_state_publisher',
             namespace=entity_name_0,
             parameters=[{'frame_prefix': entity_name_0+'/', 'use_sim_time': use_sim_time, 'robot_description': Command(['xacro ', robot_desc_path, ' robot_name:=', entity_name_0])}],
-            output="screen"
-        ),
+            output="screen",
+            remappings=remappings
+        )
 
     ])
