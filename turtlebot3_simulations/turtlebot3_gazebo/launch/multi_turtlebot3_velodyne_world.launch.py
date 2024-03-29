@@ -82,12 +82,16 @@ def generate_launch_description():
         Node(
             package='rviz2',
             executable='rviz2',
-            arguments=['-d', '/home/brossano/sim_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/rviz/slam.rviz'],
+            arguments=['-d', '/home/jetson/sim_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/rviz/nav2.rviz'],
             output='screen'
         ),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
-                os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'launch', 'slam_launch.py')))
+                os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'launch', 'slam_launch.py'))),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                os.path.join(get_package_share_directory('nav2_bringup'), 'launch', 'navigation_launch.py')))
 
     ])

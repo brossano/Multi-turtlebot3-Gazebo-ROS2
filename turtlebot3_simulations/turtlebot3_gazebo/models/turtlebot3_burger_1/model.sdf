@@ -40,6 +40,48 @@
       </visual>
     </link>
 
+    <joint name="block_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>block_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+      <pose>-0.02 0.07 0.1 0 0 0</pose>
+    </joint>
+
+    <!-- Tracking Block -->
+    <link name="block_link">
+
+      <visual name="block_link_visual">
+        <pose>-0.02 0.07 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.75 0 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0.2 0.2 0.2 64</specular>
+          <emissive>0.1 0 0.1 1</emissive>
+        </material>
+        <!-- <material>green</material> -->
+      </visual>
+
+      <inertial>
+        <mass>1e-5</mass>
+        <pose>-0.02 0.07 0.1 0 0 0</pose>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+    </link>
+
     <link name="imu_link">
       <sensor name="tb3_imu" type="imu">
         <always_on>true</always_on>

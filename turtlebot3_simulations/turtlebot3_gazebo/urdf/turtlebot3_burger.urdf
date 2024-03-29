@@ -74,8 +74,81 @@
       <inertia ixx="2.2124416e-03" ixy="-1.2294101e-05" ixz="3.4938785e-05" iyy="2.1193702e-03" iyz="-5.0120904e-06" izz="2.0064271e-03" />
     </inertial>
   </link>
+  
+  <joint name="camera_joint" type="fixed">
+    <parent>base_link</parent>
+    <child>camera_link</child>
+    <axis>
+      <xyz>0 1 0</xyz>
+    </axis>
+    <pose>-0.02 -0.07 0.1 0 0 0</pose>
+  </joint>
 
+    <!-- Camera -->
+  <link name="camera_link">
 
+    <visual name="camera_link_visual">
+      <pose>-0.02 -0.07 0.1 0 0 0</pose>
+      <geometry>
+        <box>
+          <size>0.02 0.02 0.02</size>
+        </box>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass>1e-5</mass>
+      <pose>-0.02 -0.07 0.1 0 0 0</pose>
+      <inertia>
+        <ixx>0.001</ixx>
+        <ixy>0.000</ixy>
+        <ixz>0.000</ixz>
+        <iyy>0.001</iyy>
+        <iyz>0.000</iyz>
+        <izz>0.001</izz>
+      </inertia>
+    </inertial>
+
+    <sensor type="camera" name="camera1">
+      <pose>-0.02 -0.07 0.1 0 0 -1.5708</pose>
+      <visualize>true</visualize>
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.089</horizontal_fov>
+        <image>
+            <format>R8G8B8</format>
+            <width>640</width>
+            <height>480</height>
+        </image>
+        <clip>
+            <near>0.05</near>
+            <far>8.0</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+              That pixel's noise value is added to each of its color
+              channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </link>
 
   <joint name="wheel_left_joint" type="continuous">
     <parent link="base_link"/>
@@ -248,6 +321,8 @@
       </plugin>
     </sensor>
   </gazebo>
+
+
 
   <joint name="imu_joint" type="fixed">
     <parent link="base_link"/>
