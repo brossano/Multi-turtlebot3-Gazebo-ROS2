@@ -59,11 +59,17 @@
             <size>0.05 0.05 0.05</size>
           </box>
         </geometry>
-        <material>
+        <!-- <material>
           <ambient>0.5 0.75 0 1</ambient>
           <diffuse>0 1 0 1</diffuse>
           <specular>0.2 0.2 0.2 64</specular>
           <emissive>0.1 0 0.1 1</emissive>
+        </material> -->
+        <material>
+          <script>
+            <uri>model://turtlebot3_burger_1/materials/scripts/apriltag.material</uri>
+            <name>April/Tag</name>
+          </script>
         </material>
         <!-- <material>green</material> -->
       </visual>
