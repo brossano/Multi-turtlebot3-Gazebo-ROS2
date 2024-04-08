@@ -82,7 +82,8 @@ def generate_launch_description():
         Node(
             package='rviz2',
             executable='rviz2',
-            arguments=['-d', '/home/jetson/sim_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/rviz/nav2.rviz'],
+            # arguments=['-d', '/home/jetson/sim_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/rviz/nav2.rviz'],
+            arguments=['-d', '/home/rob-prog-group/ROB450_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/rviz/nav2.rviz'],
             output='screen'
         ),
 
