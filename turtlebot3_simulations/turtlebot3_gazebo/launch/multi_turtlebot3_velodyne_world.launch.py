@@ -93,6 +93,31 @@ def generate_launch_description():
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
-                os.path.join(get_package_share_directory('nav2_bringup'), 'launch', 'navigation_launch.py')))
+                os.path.join(get_package_share_directory('nav2_bringup'), 'launch', 'navigation_launch.py')),
+                launch_arguments={
+                    'params_file': '/home/rob-prog-group/ROB450_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/config/nav2_params.yaml'
+                }.items()
+        ),
+        
+        # Node(
+        #     package='agv_publisher',
+        #     executable='agv_publisher',
+        #     name='agv_publisher',
+        #     output='screen'
+        # ),
+
+        # Node(
+        #     package='image_proc',
+        #     executable='sync',
+        #     name='sync',
+        #     output='screen'
+        # ),
+
+        # Node(
+        #     package='image_proc',
+        #     executable='agv_nav',
+        #     name='nav',
+        #     output='screen'
+        # )
 
     ])
