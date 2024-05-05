@@ -14,17 +14,21 @@
 
     <include>
       <uri>model://turtlebot3_dqn_world</uri>
+      <!-- <uri>model://empty_room</uri> -->
       <!-- <uri>model://turtlebot3_room</uri> -->
       <!-- <uri>model://turtlebot3_dqn_world</uri> -->
     </include>
 
     <include>
-      <pose>2 1.7 0.01 0.0 0.0 3.1415926</pose>
+      <pose>0.0 0.0 0.01 0.0 0.0 0</pose>
+      <!-- <pose>5.8 1.7 0.01 0.0 0.0 3.14</pose> -->
+      <!-- <pose>6.0 8.0 0.01 0.0 0.0 3.1415926</pose> -->
       <uri>model://turtlebot3_burger_0</uri>
     </include>
     
     <include>
-      <pose>2 2 0.01 0.0 0.0 3.1415926</pose>
+      <!-- <pose>5.8 1.7 0.01 0.0 0.0 3.14</pose> -->
+      <pose>6.0 2.0 0.01 0.0 0.0 3.1415926</pose>
       <uri>model://turtlebot3_burger_1</uri>
     </include>
 

@@ -41,7 +41,8 @@ def generate_launch_description():
 
     declare_slam_params_file_cmd = DeclareLaunchArgument(
         'slam_params_file',
-        default_value='/home/brossano/sim_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/config/slam_toolbox_params.yaml',
+        # default_value='/home/brossano/sim_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/config/slam_toolbox_params.yaml',
+        default_value='/home/rob-prog-group/ROB450_ws/src/Multi-turtlebot3-Gazebo-ROS2/turtlebot3_simulations/turtlebot3_gazebo/config/slam_toolbox_params.yaml',
         description='Full path to the ROS2 parameters file to use for the slam_toolbox node')
 
 

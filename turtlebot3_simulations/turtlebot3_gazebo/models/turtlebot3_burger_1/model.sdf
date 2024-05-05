@@ -40,23 +40,67 @@
       </visual>
     </link>
 
+
+    <joint name="background_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>background_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+      <pose>-0.03 0.07 0.12 0 0 0</pose>
+    </joint>
+
+    <!-- Tracking Block -->
+    <link name="background_link">
+
+      <visual name="background_link_visual">
+        <pose>-0.03 0.07 0.12 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.01 0.07</size>
+          </box>
+        </geometry>
+        <!-- <material>
+          <ambient>0.5 0.75 0 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0.2 0.2 0.2 64</specular>
+          <emissive>0.1 0 0.1 1</emissive>
+        </material> -->
+   
+        <!-- <material>green</material> -->
+      </visual>
+
+      <inertial>
+        <mass>1e-5</mass>
+        <pose>-0.03 0.07 0.12 0 0 0</pose>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+    </link>
+
     <joint name="block_joint" type="fixed">
       <parent>base_link</parent>
       <child>block_link</child>
       <axis>
         <xyz>0 1 0</xyz>
       </axis>
-      <pose>-0.02 0.07 0.1 0 0 0</pose>
+      <pose>-0.03 0.065 0.105 0 0 0</pose>
     </joint>
 
     <!-- Tracking Block -->
     <link name="block_link">
 
       <visual name="block_link_visual">
-        <pose>-0.02 0.07 0.1 0 0 0</pose>
+        <pose>-0.03 0.065 0.105 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.05 0.05 0.05</size>
+            <size>0.025 0.025 0.025</size>
           </box>
         </geometry>
         <!-- <material>
@@ -76,7 +120,7 @@
 
       <inertial>
         <mass>1e-5</mass>
-        <pose>-0.02 0.07 0.1 0 0 0</pose>
+        <pose>-0.03 0.065 0.105 0 0 0</pose>
         <inertia>
           <ixx>0.001</ixx>
           <ixy>0.000</ixy>

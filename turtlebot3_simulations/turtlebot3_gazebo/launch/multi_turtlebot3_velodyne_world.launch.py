@@ -99,25 +99,25 @@ def generate_launch_description():
                 }.items()
         ),
         
-        # Node(
-        #     package='agv_publisher',
-        #     executable='agv_publisher',
-        #     name='agv_publisher',
-        #     output='screen'
-        # ),
+        Node(
+            package='agv_publisher',
+            executable='agv_publisher',
+            name='agv_publisher',
+            output='screen'
+        ),
 
-        # Node(
-        #     package='image_proc',
-        #     executable='sync',
-        #     name='sync',
-        #     output='screen'
-        # ),
+        Node(
+            package='image_proc',
+            executable='sync',
+            name='sync',
+            output='screen'
+        ),
 
-        # Node(
-        #     package='image_proc',
-        #     executable='agv_nav',
-        #     name='nav',
-        #     output='screen'
-        # )
+        Node(
+            package='image_proc',
+            executable='agv_nav',
+            name='nav',
+            output='screen'
+        )
 
     ])

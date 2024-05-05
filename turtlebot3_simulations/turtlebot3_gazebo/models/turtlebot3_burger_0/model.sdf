@@ -126,7 +126,7 @@
 
       
     <link name="ultrasonic_link">
-      <visual name="camera_link_visual">
+      <visual name="ultrasonic_link_visual">
         <pose>-0.04 -0.07 0.1 0 0 0</pose>
         <geometry>
           <box>
@@ -170,7 +170,7 @@
           </scan>
           <range>
             <min>0.02</min>
-            <max>4</max>
+            <max>20</max>
             <resolution>0.01</resolution>
           </range>
           <noise>
